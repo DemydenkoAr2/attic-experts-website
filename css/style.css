@@ -1,0 +1,255 @@
+:root {
+  /* COLORS */
+  --white: #ffffff;
+  --soft-green: #e9ece2;
+  --green: #088161;
+  --green-hovered: #054d3a;
+  --primary-green: #49ad6f;
+  --dark-green: #1d3421;
+  --yellow: #deff85;
+  --yellow-hovered: #eefd62;
+  --black: #181818;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+}
+
+.btn-primary {
+  padding: 12px 32px;
+  background-color: var(--green);
+  color: var(--white);
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--green-hovered);
+  color: var(--soft-green);
+}
+
+.btn-secondary {
+  padding: 12px 20px 12px 24px;
+  border: 1px solid var(--green);
+  color: var(--primary-green);
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.btn-secondary:hover {
+  border: 1px solid var(--green-hovered);
+  background:
+    linear-gradient(
+        to bottom right,
+        rgba(86, 154, 98, 0.37) 0%,
+        rgba(86, 154, 98, 0) 50%
+      )
+      bottom right / 50% 50% no-repeat,
+    linear-gradient(
+        to bottom left,
+        rgba(86, 154, 98, 0.37) 0%,
+        rgba(86, 154, 98, 0) 50%
+      )
+      bottom left / 50% 50% no-repeat,
+    linear-gradient(
+        to top left,
+        rgba(86, 154, 98, 0.37) 0%,
+        rgba(86, 154, 98, 0) 50%
+      )
+      top left / 50% 50% no-repeat,
+    linear-gradient(
+        to top right,
+        rgba(86, 154, 98, 0.37) 0%,
+        rgba(86, 154, 98, 0) 50%
+      )
+      top right / 50% 50% no-repeat;
+}
+
+.btn-accent {
+  padding: 12px 32px;
+  background: var(--yellow);
+  color: var(--black);
+  transition: background 0.15s ease;
+}
+
+.btn-accent:hover {
+  padding: 12px 26px;
+  background: var(--yellow-hovered);
+  font-family: "Inter Tight", sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.64px;
+}
+
+.btn-link {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--green);
+  color: var(--green);
+}
+
+.btn-link:hover {
+  border-bottom: 1px solid var(--dark-green);
+  color: var(--dark-green);
+  font-family: "Inter Tight", sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.8px;
+}
+
+.section {
+}
+
+.container {
+  width: 100%;
+  max-width: 1440px;
+  margin-inline: auto;
+}
+
+/* ------ HEADER ------  */
+.section-header {
+  background: var(--white, #fff);
+  position: static;
+}
+
+.container-header {
+  padding-block: 20px;
+  width: 100%;
+  max-width: 1440px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: 24px; /* или 20px, судя по разметке */
+}
+
+.logo {
+  display: flex;
+  align-items: baseline;
+
+  color: var(--Green, #088161);
+  font-family: "Inter Tight";
+  font-size: 38px;
+  font-style: normal;
+  font-weight: 600;
+  /* line-height: var(--Static-Display-Medium-Line-Height, 52px); 136.842% */
+  letter-spacing: -1px;
+}
+
+.logo img {
+  padding: 0 4px 0 0;
+}
+
+.nav-header__list {
+  display: flex;
+  padding: 8px 6px;
+  align-items: flex-start;
+  gap: 16px;
+}
+.nav-header__item {
+}
+
+.nav-header__link {
+  color: var(--black);
+  opacity: 0.6;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+/* ------ Sub HEADER ------ */
+.section-subheader {
+}
+
+.container-subheader {
+  padding-block: 20px;
+  padding-inline: 24px; /* или 20px, судя по разметке */
+  width: 100%;
+  max-width: 1440px;
+  display: flex;
+  height: 750px;
+  gap: 16px;
+}
+
+.hero-eyebrow__text {
+  color: var(--Bback);
+  text-align: center;
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 21px */
+  letter-spacing: 0.56px;
+  text-transform: uppercase;
+  display: flex;
+  gap: 4px;
+  padding: 0 0 20px;
+}
+
+.hero-title {
+  color: var(--black);
+  /* Tittle */
+  font-family: "Inter Tight";
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 130%; /* 62.4px */
+  letter-spacing: 0.96px;
+  padding: 0 0 24px;
+}
+
+.hero-description {
+  color: var(--Base-Dark-Grey, #636363);
+
+  /* Subtitle */
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 30px */
+  letter-spacing: -0.2px;
+}
+
+.hero-content {
+  padding: 65px 60px 65px 25px;
+  /* gap: 225px; */
+  width: 798px;
+    display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: var(--Soft-Green, #E9ECE2);
+}
+
+/* .description{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+} */
+
+.hero-btn {
+  display: flex;
+  gap: 16px;
+}
+
+.hero-img {
+  width: 40%; /* или сколько нужно по вашей раскладке */
+  height: 100%; /* или конкретная высота/aspect-ratio */
+  overflow: hidden; /* обрезает всё, что выходит за пределы блока */
+  /* border-radius: 12px; опционально, если нужны скруглённые углы */
+}
+
+.hero-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* заполняет блок, сохраняя пропорции, обрезая лишнее */
+  object-position: center; /* центрирует "видимую" часть фото */
+}

@@ -231,17 +231,18 @@ header {
 }
 
 .hero-content {
-  padding: 65px 60px 65px 25px;
+  padding: 65px 60px;
   width: 798px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  gap: 24px;
   background: var(--soft-green);
 }
 
 .hero-btn {
   display: flex;
   gap: 16px;
+  margin-top: auto;
 }
 
 .hero-img {
@@ -1118,22 +1119,23 @@ header {
 .container-sf-hero {
   display: flex;
   gap: 16px;
-  padding-inline: 80px;
-  padding-block: 80px;
-  height: 700px;
+  padding-inline: 24px;
+  padding-block: 20px;
+  height: 750px;
 }
 
 .sf-hero__content {
   flex: 0 0 55%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  padding: 40px 60px 40px 0;
+  gap: 24px;
+  padding: 65px 60px;
   background: var(--soft-green);
 }
 
 .sf-hero__img {
   flex: 1;
+  height: 100%;
   overflow: hidden;
 }
 
@@ -1147,7 +1149,7 @@ header {
 .container-sf-what {
   display: flex;
   gap: 80px;
-  align-items: flex-start;
+  align-items: center;
   padding-block: 100px;
   padding-inline: 80px;
 }
@@ -1163,12 +1165,11 @@ header {
   font-weight: 600;
   line-height: 120%;
   letter-spacing: -0.5px;
-  padding-top: 20px;
+  padding-top: 16px;
 }
 
 .sf-what__right {
   flex: 1;
-  padding-top: 8px;
 }
 
 .sf-section__text {

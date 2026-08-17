@@ -6,7 +6,9 @@
 
 html {
   block-size: 100%;
-  -webkit-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;   /* Safari/iOS — запрещает авто-масштаб текста */
+  -moz-text-size-adjust: 100%;      /* Firefox mobile */
+  text-size-adjust: 100%;
   tab-size: 4;
   scroll-behavior: smooth;
 }
@@ -14,9 +16,9 @@ html {
 body {
   min-block-size: 100%;
   line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeSpeed;
+  -webkit-font-smoothing: antialiased;   /* Safari/Chrome macOS */
+  -moz-osx-font-smoothing: grayscale;    /* Firefox macOS */
+  text-rendering: optimizeLegibility;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -37,6 +39,7 @@ ul, ol {
 a {
   text-decoration: none;
   color: inherit;
+  -webkit-tap-highlight-color: transparent; /* убирает серую вспышку при тапе iOS/Android */
 }
 
 img, picture, video, canvas, svg, iframe {
@@ -51,17 +54,38 @@ input, button, textarea, select, optgroup {
   background: transparent;
   border: none;
   outline: none;
+  -webkit-appearance: none; /* Safari/iOS */
+  -moz-appearance: none;    /* Firefox */
   appearance: none;
+  border-radius: 0;         /* iOS Safari добавляет радиус по умолчанию */
 }
 
-button {
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none; /* убирает крестик поиска в Safari */
+}
+
+/* Убираем синюю подсветку при тапе на кнопки — iOS/Android */
+button,
+[role="button"] {
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation; /* убирает задержку 300ms на мобиле */
 }
 
 textarea {
   resize: vertical;
   white-space: revert;
 }
+
+/* Скроллбар — Chrome/Edge/Safari */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(8, 129, 97, 0.3); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(8, 129, 97, 0.6); }
+
+/* Скроллбар — Firefox */
+* { scrollbar-width: thin; scrollbar-color: rgba(8, 129, 97, 0.3) transparent; }
 
 table {
   border-collapse: collapse;

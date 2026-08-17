@@ -1407,6 +1407,61 @@ header {
 .nav-burger { display: none; }
 
 /* ============================================================
+   CROSS-BROWSER FIXES
+   ============================================================ */
+
+/* Safari — sticky header z-index fix */
+header { -webkit-transform: translateZ(0); }
+
+/* iOS Safari — предотвращает zoom при фокусе на input < 16px */
+input, textarea, select {
+  font-size: max(16px, 1em);
+}
+
+/* iOS safe area — для iPhone с чёлкой (X и новее) */
+header {
+  padding-top: env(safe-area-inset-top);
+}
+
+.footer {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* Safari — фикс gap в flexbox для старых версий */
+@supports not (gap: 1px) {
+  .nav-header__list > * + * { margin-left: 16px; }
+  .hero-btn > * + * { margin-left: 16px; }
+  .footer__top > * + * { margin-left: 80px; }
+}
+
+/* Firefox — убирает внутренний padding у button */
+button::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/* Safari/Chrome — placeholder цвет */
+::-webkit-input-placeholder { opacity: 1; }
+::-moz-placeholder { opacity: 1; }
+
+/* FAQ accordion — fallback для Safari < 16 (не поддерживает grid-template-rows анимацию) */
+@supports not (grid-template-rows: 0fr) {
+  .faq-item__answer {
+    display: block;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+  .faq-item--open .faq-item__answer {
+    max-height: 400px;
+  }
+}
+
+/* Edge/IE — flex минимальная ширина */
+.hero-content,
+.sf-hero__content { min-width: 0; }
+
+/* ============================================================
    RESPONSIVE
    ============================================================ */
 

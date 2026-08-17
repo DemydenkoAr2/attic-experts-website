@@ -118,6 +118,15 @@ Service links in footer:
 
 ---
 
+## Responsive Breakpoints
+```css
+@media (max-width: 1280px) { /* Ноутбуки */ }
+@media (max-width: 1024px) { /* Планшеты */ }
+@media (max-width: 768px)  { /* Маленькие планшеты */ }
+@media (max-width: 480px)  { /* Мобильные */ }
+```
+Strategy: section by section, desktop-first. Start with header/footer (shared), then index.html sections, then other pages.
+
 ## Known Issues / TODO
 - `<title>Document</title>` on index.html — needs real title
 - No meta descriptions on any page

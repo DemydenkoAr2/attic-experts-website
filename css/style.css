@@ -60,14 +60,14 @@
 
 .btn-accent {
   padding: 12px 32px;
-  background: var(--yellow);
+  background-color: var(--yellow);
   color: var(--black);
-  transition: background 0.15s ease;
+  transition: background-color 0.15s ease;
 }
 
 .btn-accent:hover {
   padding: 12px 26px;
-  background: var(--yellow-hovered);
+  background-color: var(--yellow-hovered);
   font-family: "Inter Tight", sans-serif;
   font-weight: 500;
   letter-spacing: 0.64px;
@@ -124,6 +124,8 @@ header {
 
 .logo img {
   padding-right: 4px;
+  height: 1em;
+  width: auto;
 }
 
 .nav-header__list {
@@ -634,7 +636,7 @@ header {
   font-family: Inter, sans-serif;
   font-size: 17px;
   line-height: 160%;
-  max-width: 100%;
+
   padding: 24px;
 }
 
@@ -835,7 +837,7 @@ header {
   font-family: Inter, sans-serif;
   font-size: 18px;
   line-height: 160%;
-  max-width: 100%;
+
 }
 
 /* ------ FOOTER ------ */
@@ -1061,7 +1063,6 @@ header {
   color: var(--black);
   font-family: Inter, sans-serif;
   font-size: 18px;
-  font-weight: 400;
   line-height: 150%;
 }
 
@@ -1283,7 +1284,7 @@ header {
   font-family: Inter, sans-serif;
   font-size: 18px;
   line-height: 160%;
-  max-width: 100%;
+
 }
 
 .sf-section__text--spaced {
@@ -1337,7 +1338,7 @@ header {
   font-family: Inter, sans-serif;
   font-size: 17px;
   line-height: 150%;
-  max-width: 100%;
+
 }
 
 .section-sf-how {
@@ -1399,6 +1400,434 @@ header {
   font-family: Inter, sans-serif;
   font-size: 16px;
   line-height: 150%;
-  max-width: 100%;
+
+}
+
+/* Бургер скрыт на десктопе */
+.nav-burger { display: none; }
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+/* ------ 1280px — Ноутбуки ------ */
+@media (max-width: 1280px) {
+
+  /* Header */
+  .logo { font-size: 30px; }
+  .container-header { padding-inline: 40px; }
+
+  /* Hero */
+  .hero-title { font-size: 40px; }
+  .hero-content,
+  .sf-hero__content { padding: 48px 40px; }
+
+  /* About */
+  .container-about { padding-inline: 48px; }
+  .about { gap: 60px; }
+  .about-description { font-size: 26px; }
+
+  /* Services */
+  .container-service { padding: 80px 48px 40px; }
+  .container-service__cards { padding: 0 48px 80px; }
+  .service-title__text h3 { font-size: 36px; }
+
+  /* FAQ */
+  .container-faq { padding-inline: 48px; }
+  .faq-title { font-size: 38px; }
+
+  /* Testimonial */
+  .container-testimonial { padding-inline: 48px; }
+
+  /* Contact */
+  .container-contact { padding-inline: 48px; }
+
+  /* Service pages */
+  .container-sf-what,
+  .container-sf-how,
+  .container-faq { padding-inline: 48px; }
+  .container-sf-when { padding-inline: 48px; }
+  .sf-section__title { font-size: 34px; }
+
+  /* CTA */
+  .container-main__sub--text h3 { font-size: 36px; }
+
+  /* Footer */
+  .footer__container { padding-inline: 48px; }
+}
+
+/* ------ 1024px — Планшеты ------ */
+@media (max-width: 1024px) {
+
+  /* Header */
+  .logo { font-size: 26px; }
+  .container-header { padding-inline: 24px; }
+  .nav-header__list { gap: 12px; }
+  .nav-header__link { font-size: 14px; }
+
+  /* Hero */
+  .container-subheader,
+  .container-sf-hero { height: 560px; }
+  .hero-title { font-size: 34px; }
+  .hero-description { font-size: 17px; }
+  .hero-content,
+  .sf-hero__content { padding: 36px 28px; gap: 16px; }
+
+  /* About */
+  .container-about { padding-block: 70px; padding-inline: 32px; }
+  .about { gap: 40px; }
+  .about-description { font-size: 22px; }
+  .container-card { gap: 12px; }
+  .card { width: auto; flex: 1; }
+  .card-top { font-size: 30px; line-height: 60px; }
+  .card-bot { font-size: 16px; }
+
+  /* Services */
+  .container-service { padding: 60px 32px 32px; }
+  .container-service__cards { padding: 0 32px 60px; }
+  .service-title { flex-direction: column; align-items: flex-start; gap: 24px; }
+  .service-title__text h3 { font-size: 30px; }
+  .container-service__card-item { width: 100%; flex-direction: column; }
+  .container-service__card-item--reverse { flex-direction: column; }
+  .item-description { flex: none; width: 100%; height: auto; }
+  .item-description p { padding-bottom: 24px; }
+  .item-img { flex: none; width: 100%; height: 260px; }
+
+  /* FAQ */
+  .container-faq { padding-inline: 32px; gap: 48px; }
+  .faq-left { flex: 0 0 280px; }
+  .faq-title { font-size: 32px; }
+  .faq-item__question { font-size: 15px; padding-block: 20px; }
+
+  /* Testimonial */
+  .container-testimonial { padding-block: 70px; padding-inline: 32px; }
+  .testimonial-title { font-size: 36px; }
+
+  /* CTA */
+  .container-main__sub--text h3 { font-size: 32px; }
+  .container-main__sub--text { padding: 60px 0; }
+
+  /* Contact */
+  .container-contact { padding-block: 60px; padding-inline: 32px; }
+  .contact-body { gap: 48px; }
+
+  /* Service pages */
+  .container-sf-what,
+  .container-sf-how,
+  .container-faq,
+  .container-sf-when { padding-inline: 32px; padding-block: 70px; }
+  .sf-section__title { font-size: 30px; }
+  .sf-what__left { flex: 0 0 280px; }
+  .sf-when__item { padding: 24px; }
+  .sf-step__title { font-size: 17px; }
+
+  /* Services page */
+  .container-services-title { padding-inline: 32px; padding-block: 60px; }
+
+  /* FAQ page */
+  .container-faq-page { padding-inline: 32px; gap: 60px; }
+  .faq-page__category { flex: 0 0 200px; font-size: 20px; }
+
+  /* Areas page */
+  .container-areas-hero { padding-inline: 32px; }
+  .container-areas-main { height: 650px; }
+  .areas-info { flex: 0 0 300px; padding: 32px; }
+
+  /* Footer */
+  .footer__container { padding-inline: 40px; }
+  .footer__top { gap: 40px; }
+}
+
+/* ------ 768px — Маленькие планшеты ------ */
+@media (max-width: 768px) {
+
+  /* Header */
+  .container-header { padding-inline: 20px; position: relative; }
+  .logo { font-size: 22px; }
+
+  /* Hero — колонки в столбик */
+  .container-subheader,
+  .container-sf-hero {
+    flex-direction: column;
+    height: auto;
+    padding-inline: 0;
+    padding-block: 0;
+    gap: 0;
+  }
+
+  .hero-content,
+  .sf-hero__content {
+    flex: none;
+    width: 100%;
+    padding: 40px 24px;
+    gap: 16px;
+  }
+
+  .hero-img,
+  .sf-hero__img {
+    width: 100%;
+    height: 300px;
+    flex: none;
+  }
+
+  .hero-title { font-size: 32px; letter-spacing: 0; }
+  .hero-description { font-size: 16px; }
+  .hero-btn { flex-wrap: wrap; }
+
+  /* About */
+  .container-about { padding-block: 60px; padding-inline: 24px; }
+  .about { flex-direction: column; gap: 32px; padding-bottom: 48px; }
+  .about-description { font-size: 20px; }
+  .container-card { flex-direction: column; gap: 12px; }
+  .card { width: 100%; }
+  .card-year, .card-rate, .card-prot { padding: 20px; }
+
+  /* Services section */
+  .container-service { padding: 48px 24px 24px; }
+  .container-service__cards { padding: 0 24px 48px; }
+  .service-title__text h3 { font-size: 26px; }
+  .container-service__card-item { width: 100%; flex-direction: column; }
+  .container-service__card-item--reverse { flex-direction: column; }
+  .item-description { flex: none; width: 100%; height: auto; }
+  .item-description p { padding-bottom: 16px; }
+  .item-img { flex: none; width: 100%; height: 220px; }
+
+  /* FAQ */
+  .container-faq { flex-direction: column; gap: 40px; padding-inline: 24px; }
+  .faq-left { flex: none; width: 100%; position: static; }
+  .faq-title { font-size: 28px; padding-block: 16px; }
+  .faq-still { margin-top: 16px; }
+  .faq-item__question { font-size: 15px; padding-block: 18px; padding-inline: 16px; }
+  .faq-item__answer p { font-size: 15px; }
+
+  /* Testimonial */
+  .container-testimonial { padding-block: 60px; padding-inline: 24px; }
+  .testimonial-title { font-size: 28px; }
+  .testimonial-description { font-size: 16px; }
+  .testimonial-card { flex: 0 0 100%; padding: 24px; }
+  .testimonial-slider__dots { width: 50%; }
+  .testimonial-slider__arrows { width: 50%; justify-content: flex-end; }
+
+  /* CTA */
+  .container-main__sub--text { padding: 48px 0; gap: 16px; }
+  .container-main__sub--text h3 { font-size: 26px; }
+  .container-main__sub--text p { font-size: 16px; }
+
+  /* Contact */
+  .container-contact { padding-block: 48px; padding-inline: 24px; }
+  .contact-body { flex-direction: column; gap: 40px; }
+  .contact-info { flex: none; order: -1; }
+
+  /* Service pages */
+  .container-sf-what { flex-direction: column; gap: 32px; padding-inline: 24px; padding-block: 60px; }
+  .sf-what__left { flex: none; width: 100%; }
+  .sf-what__right { flex: none; width: 100%; }
+  .sf-section__title { font-size: 28px; }
+  .container-sf-when { padding-inline: 24px; padding-block: 60px; }
+  .sf-when__grid { flex-direction: column; }
+  .sf-when__item { flex: none; width: 100%; }
+  .container-sf-how { flex-direction: column; gap: 40px; padding-inline: 24px; padding-block: 60px; }
+  .sf-how__left { flex: none; width: 100%; }
+
+  /* Services page */
+  .container-services-title { padding-inline: 24px; padding-block: 48px; }
+  .container-sf-hero--reverse { flex-direction: column; }
+
+  /* FAQ page */
+  .container-faq-page { padding-inline: 24px; gap: 48px; }
+  .faq-page__group { flex-direction: column; gap: 24px; }
+  .faq-page__category { flex: none; position: static; font-size: 20px; padding-top: 0; }
+
+  /* About page */
+  .sf-when__title { font-size: 16px; }
+
+  /* Service Areas */
+  .container-areas-hero { padding-inline: 24px; padding-block: 48px; }
+  .container-areas-main { flex-direction: column; height: auto; }
+  .areas-map { height: 350px; }
+  .areas-info { flex: none; width: 100%; padding: 32px 24px; }
+  .areas-cities__list { grid-template-columns: 1fr 1fr; }
+
+  /* Скрываем nav, показываем бургер */
+  .nav-header { display: none; }
+  .nav-header.nav-open { display: block; }
+
+  /* Header завсегда поверх меню */
+  header { z-index: 300; }
+
+  /* Мобильное меню — заполняет всё под хедером */
+  .nav-header.nav-open .nav-header__list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    padding: 0;
+    width: 100%;
+    background: var(--white);
+    position: fixed;
+    top: 80px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 200;
+  }
+
+  .nav-header.nav-open .nav-header__item {
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-header.nav-open .nav-header__item::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: rgba(24,24,24,0.1);
+    margin: 0 auto;
+  }
+
+  .nav-header.nav-open .nav-header__link {
+    position: relative;
+    display: block;
+    padding: 20px;
+    font-size: 22px;
+    font-family: "Inter Tight", sans-serif;
+    font-weight: 600;
+    opacity: 1;
+  }
+
+  .nav-header.nav-open .nav-header__link::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  /* Убираем hover-анимацию на touch */
+  @media (hover: hover) {
+    .nav-header.nav-open .nav-header__link:hover::after {
+      width: 32px;
+    }
+  }
+
+  .nav-header.nav-open .nav-header__link--active::after {
+    content: '';
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 32px;
+    height: 2px;
+    background: var(--green);
+  }
+
+  /* Бургер кнопка */
+  .nav-burger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .nav-burger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--black);
+    transition: transform 0.25s ease, opacity 0.25s ease;
+    transform-origin: center;
+  }
+
+  /* Бургер → крестик */
+  .nav-burger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-burger.active span:nth-child(2) { opacity: 0; }
+  .nav-burger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* Footer */
+  .footer__container { padding-inline: 24px; padding-block: 40px; gap: 40px; }
+  .footer__top { flex-wrap: wrap; gap: 32px; }
+  .footer__col { flex: 0 0 calc(50% - 16px); }
+  .footer__bottom { flex-direction: column; align-items: flex-start; gap: 24px; }
+  .footer__email-form input { width: 100%; }
+}
+
+/* ------ 480px — Мобильные ------ */
+@media (max-width: 480px) {
+
+  /* Header */
+  .container-header { padding-inline: 16px; }
+  .logo { font-size: 18px; }
+  .nav-header.nav-open .nav-header__link { font-size: 20px; }
+
+  /* Hero */
+  .hero-content,
+  .sf-hero__content { padding: 32px 16px; }
+  .hero-title { font-size: 26px; }
+  .hero-img,
+  .sf-hero__img { height: 220px; }
+  .hero-btn { flex-direction: column; }
+  .hero-btn .btn { width: 100%; justify-content: center; }
+
+  /* About */
+  .container-about { padding-block: 48px; padding-inline: 16px; }
+  .about-description { font-size: 18px; }
+  .card-top { font-size: 28px; line-height: 50px; }
+  .card-bot { font-size: 14px; }
+
+  /* Services section */
+  .container-service { padding: 40px 16px 20px; }
+  .container-service__cards { padding: 0 16px 40px; }
+  .service-title__text h3 { font-size: 22px; }
+  .item-img { height: 180px; }
+
+  /* FAQ */
+  .container-faq { padding-inline: 16px; }
+  .faq-title { font-size: 24px; }
+  .faq-item__question { font-size: 14px; padding-inline: 12px; }
+
+  /* Testimonial */
+  .container-testimonial { padding-inline: 16px; }
+  .testimonial-card { padding: 20px; }
+  .testimonial-card__name { font-size: 14px; }
+  .testimonial-card__text { font-size: 15px; }
+  .testimonial-card__score { font-size: 15px; }
+  .testimonial-card__stars { font-size: 15px; }
+
+  /* CTA */
+  .container-main__sub { padding: 0 16px; }
+  .container-main__sub--text h3 { font-size: 22px; }
+
+  /* Contact */
+  .container-contact { padding-inline: 16px; }
+  .contact-info__value { font-size: 15px; }
+
+  /* Service pages */
+  .container-sf-what { padding-inline: 16px; }
+  .container-sf-when { padding-inline: 16px; }
+  .sf-when__item { padding: 20px 16px; }
+  .container-sf-how { padding-inline: 16px; }
+  .sf-section__title { font-size: 24px; }
+  .sf-step__title { font-size: 16px; }
+  .sf-step__text { font-size: 14px; }
+
+  /* Services page */
+  .container-services-title { padding-inline: 16px; }
+
+  /* FAQ page */
+  .container-faq-page { padding-inline: 16px; }
+
+  /* Service Areas */
+  .container-areas-hero { padding-inline: 16px; }
+  .areas-info { padding: 24px 16px; }
+  .areas-map { height: 280px; }
+
+  /* Footer */
+  .footer__container { padding-inline: 16px; }
+  .footer__top { flex-direction: column; gap: 24px; }
+  .footer__col { flex: none; width: 100%; }
 }
 

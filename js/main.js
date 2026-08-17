@@ -22,6 +22,36 @@ if (textReveal) {
   observer.observe(textReveal);
 }
 
+// Burger menu
+const burger = document.querySelector('.nav-burger');
+const nav = document.querySelector('.nav-header');
+
+if (burger && nav) {
+  burger.addEventListener('click', () => {
+    const isOpen = nav.classList.toggle('nav-open');
+    burger.classList.toggle('active', isOpen);
+    burger.setAttribute('aria-expanded', isOpen);
+  });
+
+  // Закрыть при клике на ссылку
+  nav.querySelectorAll('.nav-header__link').forEach(link => {
+    link.addEventListener('click', () => {
+      nav.classList.remove('nav-open');
+      burger.classList.remove('active');
+      burger.setAttribute('aria-expanded', false);
+    });
+  });
+
+  // Закрыть при клике вне меню
+  document.addEventListener('click', e => {
+    if (!nav.contains(e.target) && !burger.contains(e.target)) {
+      nav.classList.remove('nav-open');
+      burger.classList.remove('active');
+      burger.setAttribute('aria-expanded', false);
+    }
+  });
+}
+
 // Contact form validation
 const form = document.querySelector('.contact-form');
 
@@ -70,23 +100,47 @@ const slider = document.querySelector('.testimonial-slider');
 if (slider) {
   const track = slider.querySelector('.testimonial-slider__track');
   const cards = slider.querySelectorAll('.testimonial-card');
-  const dots = slider.querySelectorAll('.testimonial-slider__dot');
+  const dotsContainer = slider.querySelector('.testimonial-slider__dots');
   const btnPrev = slider.querySelector('.testimonial-slider__btn--prev');
   const btnNext = slider.querySelector('.testimonial-slider__btn--next');
 
-  const perSlide = 2;
-  const total = Math.ceil(cards.length / perSlide);
+  let perSlide = window.innerWidth <= 768 ? 1 : 2;
+  let total = Math.ceil(cards.length / perSlide);
   let current = 0;
+
+  function buildDots() {
+    dotsContainer.innerHTML = '';
+    for (let i = 0; i < total; i++) {
+      const dot = document.createElement('button');
+      dot.className = 'testimonial-slider__dot' + (i === 0 ? ' active' : '');
+      dot.addEventListener('click', () => goTo(i));
+      dotsContainer.appendChild(dot);
+    }
+  }
 
   function goTo(index) {
     current = (index + total) % total;
-    const offset = current * (100 / perSlide) * perSlide;
-    track.style.transform = `translateX(calc(-${current * 100}% - ${current * 16}px))`;
-
-    dots.forEach((dot, i) => dot.classList.toggle('active', i === current));
+    track.style.transform = `translateX(calc(-${current * 100 / perSlide * perSlide}% - ${current * 16}px))`;
+    dotsContainer.querySelectorAll('.testimonial-slider__dot').forEach((dot, i) => {
+      dot.classList.toggle('active', i === current);
+    });
   }
+
+  function init() {
+    perSlide = window.innerWidth <= 768 ? 1 : 2;
+    total = Math.ceil(cards.length / perSlide);
+    current = 0;
+    track.style.transform = 'translateX(0)';
+    buildDots();
+  }
+
+  init();
 
   btnNext.addEventListener('click', () => goTo(current + 1));
   btnPrev.addEventListener('click', () => goTo(current - 1));
-  dots.forEach((dot, i) => dot.addEventListener('click', () => goTo(i)));
+
+  window.addEventListener('resize', () => {
+    const newPer = window.innerWidth <= 768 ? 1 : 2;
+    if (newPer !== perSlide) init();
+  });
 }

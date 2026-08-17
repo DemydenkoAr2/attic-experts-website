@@ -1410,9 +1410,6 @@ header {
    CROSS-BROWSER FIXES
    ============================================================ */
 
-/* Safari — sticky header z-index fix */
-header { -webkit-transform: translateZ(0); }
-
 /* iOS Safari — предотвращает zoom при фокусе на input < 16px */
 input, textarea, select {
   font-size: max(16px, 1em);

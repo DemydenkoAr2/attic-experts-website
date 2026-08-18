@@ -156,12 +156,14 @@ header {
   transition: width 0.25s ease;
 }
 
-.nav-header__link:hover {
-  opacity: 1;
-}
+@media (hover: hover) {
+  .nav-header__link:hover {
+    opacity: 1;
+  }
 
-.nav-header__link:hover::after {
-  width: 100%;
+  .nav-header__link:hover::after {
+    width: 100%;
+  }
 }
 
 .nav-header__link--active {
@@ -1403,8 +1405,37 @@ header {
 
 }
 
+/* Toast уведомление */
+.toast {
+  position: fixed;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%) translateY(12px);
+  background: var(--black);
+  color: var(--white);
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  padding: 10px 20px;
+  opacity: 0;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  z-index: 9999;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.toast--visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
 /* Бургер скрыт на десктопе */
 .nav-burger { display: none; }
+
+/* Блокировка скролла при открытом меню */
+body.menu-open {
+  overflow: hidden;
+  touch-action: none;
+}
 
 /* ============================================================
    CROSS-BROWSER FIXES

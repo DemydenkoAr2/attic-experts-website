@@ -27,29 +27,73 @@ const burger = document.querySelector('.nav-burger');
 const nav = document.querySelector('.nav-header');
 
 if (burger && nav) {
+  function openMenu() {
+    nav.classList.add('nav-open');
+    burger.classList.add('active');
+    burger.setAttribute('aria-expanded', true);
+    document.body.classList.add('menu-open');
+  }
+
+  function closeMenu() {
+    nav.classList.remove('nav-open');
+    burger.classList.remove('active');
+    burger.setAttribute('aria-expanded', false);
+    document.body.classList.remove('menu-open');
+  }
+
   burger.addEventListener('click', () => {
-    const isOpen = nav.classList.toggle('nav-open');
-    burger.classList.toggle('active', isOpen);
-    burger.setAttribute('aria-expanded', isOpen);
+    nav.classList.contains('nav-open') ? closeMenu() : openMenu();
   });
 
   // Закрыть при клике на ссылку
   nav.querySelectorAll('.nav-header__link').forEach(link => {
-    link.addEventListener('click', () => {
-      nav.classList.remove('nav-open');
-      burger.classList.remove('active');
-      burger.setAttribute('aria-expanded', false);
-    });
+    link.addEventListener('click', closeMenu);
   });
 
   // Закрыть при клике вне меню
   document.addEventListener('click', e => {
     if (!nav.contains(e.target) && !burger.contains(e.target)) {
-      nav.classList.remove('nav-open');
-      burger.classList.remove('active');
-      burger.setAttribute('aria-expanded', false);
+      closeMenu();
     }
   });
+}
+
+// Copy email to clipboard on click
+document.querySelectorAll('a[href^="mailto:"]').forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    const email = link.href.replace('mailto:', '');
+
+    navigator.clipboard.writeText(email).then(() => {
+      showToast(`${email} скопировано`);
+    }).catch(() => {
+      // Fallback для старых браузеров
+      const input = document.createElement('input');
+      input.value = email;
+      document.body.appendChild(input);
+      input.select();
+      document.execCommand('copy');
+      document.body.removeChild(input);
+      showToast(`${email} скопировано`);
+    });
+  });
+});
+
+function showToast(message) {
+  const existing = document.querySelector('.toast');
+  if (existing) existing.remove();
+
+  const toast = document.createElement('div');
+  toast.className = 'toast';
+  toast.textContent = message;
+  document.body.appendChild(toast);
+
+  requestAnimationFrame(() => toast.classList.add('toast--visible'));
+
+  setTimeout(() => {
+    toast.classList.remove('toast--visible');
+    setTimeout(() => toast.remove(), 300);
+  }, 2500);
 }
 
 // Contact form validation
